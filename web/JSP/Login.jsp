@@ -73,14 +73,14 @@
     </head>
     <body>
         <div class="container">
-            <form action="" method="">
+            <form action=LogIn method=post>
                 <h2>LogIn </h2>
                 <table>
                     <tr>
                         <td>
                             <div class="form-group">
                                 <label for = "Email">Email : </label>
-                                <input type = "text" name = "email" placeholder="Email" id = "email" class="form-control"><br>
+                                <input type = "text" name = "email" placeholder="Email" id = "email" class="form-control" size = 100%><br>
                             </div>
                         </td>
                     </tr>
@@ -88,7 +88,7 @@
                         <td>
                             <div class="form-group">
                                 <label for = "Password">Password : </label>
-                                <input type = "text" name = "password" placeholder="Password" id = "password" class="form-control"><br>
+                                <input type = "text" name = "password" placeholder="Password" id = "password" class="form-control" size = 100%><br>
                             </div>
                         </td>
                     </tr>
