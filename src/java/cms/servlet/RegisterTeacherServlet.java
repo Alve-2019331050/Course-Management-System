@@ -4,12 +4,18 @@
  */
 package cms.servlet;
 
+import cms.connection.DBConnection;
+import cms.dao.TeacherDao;
+import cms.model.Teacher;
 import java.io.IOException;
 import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -32,8 +38,19 @@ public class RegisterTeacherServlet extends HttpServlet {
             String dept = request.getParameter("dept");
             String email = request.getParameter("email");
             String pwd = request.getParameter("pwd");
-            
+            Teacher teacher = new Teacher(name, dept, email, pwd);
+            TeacherDao tdao = new TeacherDao(DBConnection.getConnection());
+            if (tdao.registerTeacher(teacher)) {
+                out.print("Success");
+            }
+            else{
+                out.print("Failed");
+            }
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(RegisterTeacherServlet.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(RegisterTeacherServlet.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+
     }
 }

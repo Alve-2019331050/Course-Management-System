@@ -8,12 +8,10 @@ public class DBConnection {
     private static Connection conn = null;
     
     public static Connection getConnection() throws ClassNotFoundException, SQLException{
-        if(conn!=null)
-            return conn;
-        else{
+        if(conn==null){
             Class.forName("com.mysql.cj.jdbc.Driver");
-            DriverManager.getConnection("jdbc:mysql://localhost:3306/", "root", "AlverahmaN");
-            return conn;
+            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/servlet_cms_db ", "root", "AlverahmaN");
         }
+        return conn;
     }
 }

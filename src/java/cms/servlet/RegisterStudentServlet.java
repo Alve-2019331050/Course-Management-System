@@ -1,15 +1,17 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Servlet.java to edit this template
- */
 package cms.servlet;
 
+import cms.connection.DBConnection;
+import cms.dao.StudentDao;
+import cms.model.Student;
 import java.io.IOException;
 import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -33,6 +35,18 @@ public class RegisterStudentServlet extends HttpServlet {
             String regno = request.getParameter("regno");
             String email = request.getParameter("email");
             String pwd = request.getParameter("pwd");
+            Student student = new Student(name, dept, regno,email, pwd);
+            StudentDao sdao = new StudentDao(DBConnection.getConnection());
+            if (sdao.registerStudent(student)) {
+                out.print("Success");
+            }
+            else{
+                out.print("Failed");
+            }
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(RegisterStudentServlet.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(RegisterStudentServlet.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
