@@ -13,10 +13,6 @@ import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-/**
- *
- * @author ASUS
- */
 public class RegisterStudentServlet extends HttpServlet {
 
     @Override
@@ -35,10 +31,11 @@ public class RegisterStudentServlet extends HttpServlet {
             String regno = request.getParameter("regno");
             String email = request.getParameter("email");
             String pwd = request.getParameter("pwd");
-            Student student = new Student(name, dept, regno,email, pwd);
+            Student student = new Student(regno, name, dept, email, pwd);
             StudentDao sdao = new StudentDao(DBConnection.getConnection());
             if (sdao.registerStudent(student)) {
-                out.print("Success");
+                String path = "/CourseManagementSystem/AdminHome?registrationMessage=Student "+name;
+                response.sendRedirect(path);
             }
             else{
                 out.print("Failed");

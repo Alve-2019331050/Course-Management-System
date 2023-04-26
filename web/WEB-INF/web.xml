@@ -8,6 +8,10 @@
         <servlet-name>RegisterStudentServlet</servlet-name>
         <servlet-class>cms.servlet.RegisterStudentServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>AdminHome</servlet-name>
+        <servlet-class>cms.servlet.AdminHome</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>RegisterTeacherServlet</servlet-name>
         <url-pattern>/RegisterTeacher</url-pattern>
@@ -15,6 +19,10 @@
     <servlet-mapping>
         <servlet-name>RegisterStudentServlet</servlet-name>
         <url-pattern>/RegisterStudent</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AdminHome</servlet-name>
+        <url-pattern>/AdminHome</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

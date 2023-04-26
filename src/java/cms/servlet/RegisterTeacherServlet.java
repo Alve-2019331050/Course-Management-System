@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Servlet.java to edit this template
- */
 package cms.servlet;
 
 import cms.connection.DBConnection;
@@ -17,10 +13,6 @@ import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-/**
- *
- * @author ASUS
- */
 public class RegisterTeacherServlet extends HttpServlet {
 
     @Override
@@ -41,7 +33,8 @@ public class RegisterTeacherServlet extends HttpServlet {
             Teacher teacher = new Teacher(name, dept, email, pwd);
             TeacherDao tdao = new TeacherDao(DBConnection.getConnection());
             if (tdao.registerTeacher(teacher)) {
-                out.print("Success");
+                String path = "/CourseManagementSystem/AdminHome?registrationMessage=Teacher "+name;
+                response.sendRedirect(path);
             }
             else{
                 out.print("Failed");
