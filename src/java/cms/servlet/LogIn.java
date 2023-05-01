@@ -5,7 +5,6 @@
 package cms.servlet;
 
 import cms.connection.DBConnection;
-import jakarta.servlet.RequestDispatcher;
 import java.io.IOException;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
@@ -40,23 +39,37 @@ public class LogIn extends HttpServlet {
             Connection con = DBConnection.getConnection();
             String email = request.getParameter("email");
             String password = request.getParameter("password");
-            PreparedStatement ps = con.prepareStatement("select email from user where email=? and password=?");
+            PreparedStatement ps = con.prepareStatement("select email,role from user where email=? and password=?");
             ps.setString(1, email);
             ps.setString(2, password);
             ResultSet result = ps.executeQuery();
             
             if(result.next()){
-                /*
-                RequestDispatcher rd = request.getRequestDispatcher("RegisterStudent.jsp");
-                rd.forward(request,response);
-                */
-                out.println("Successfully Logged In");
+                String emailDB = result.getString("email");
+                String roleDB = result.getString("role");
+                if(roleDB.equals("admin")){
+                    out.println("Successfully Logged In as Admin");
+                }else if(roleDB.equals("teacher")){
+                    ps = con.prepareStatement("select name from teacher where email=?");
+                    ps.setString(1,email);
+                    result = ps.executeQuery();
+                    if(result.next()) {
+                        String teacherName = result.getString("name");
+                        //out.println("Successfully Logged In as Teacher: " + teacherName);
+                        request.getSession().setAttribute("teacherName", teacherName); // set the teacherName as a session attribute
+                        response.sendRedirect("/CourseManagementSystem/TeacherHome"); // redirect to the TeacherHome JSP file
+                    } else {
+                        out.println("Failed to get teacher's name");
+                    }
+                    //response.sendRedirect("/CourseManagementSystem/TeacherHome");
+                }else{
+                    out.println("Successfully Logged In as student");
+                }
+                
             }else{
-                out.println("<font color = red size = 20>Login Failed!!<br>");
-                out.println("<a href = /JSP/login.jsp>Try Again!!</a>");
+                request.setAttribute("errorMessage", "Please provide correct information again!");
+                getServletContext().getRequestDispatcher("/JSP/Login.jsp").forward(request,response);
             }
-            
-            
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(LogIn.class.getName()).log(Level.SEVERE, null, ex);
         } catch (SQLException ex) {

@@ -20,6 +20,10 @@
         <servlet-name>LogIn</servlet-name>
         <servlet-class>cms.servlet.LogIn</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>TeacherHome</servlet-name>
+        <servlet-class>cms.servlet.TeacherHome</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>RegisterTeacherServlet</servlet-name>
         <url-pattern>/RegisterTeacher</url-pattern>
@@ -39,6 +43,10 @@
     <servlet-mapping>
         <servlet-name>LogIn</servlet-name>
         <url-pattern>/LogIn</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>TeacherHome</servlet-name>
+        <url-pattern>/TeacherHome</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
