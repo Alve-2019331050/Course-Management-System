@@ -52,7 +52,9 @@
                 ps.setString(1, teacherName);
                 ResultSet result = ps.executeQuery();
                 while(result.next()){
-                    pout.println(result.getString("title"));
+                    String dept = result.getString("dept");
+                    String code = result.getString("code");
+                    String course_code = dept + code;
         %>
         <!-- card showing assigned courses -->
         <div class="col-lg-4">
@@ -61,13 +63,13 @@
                   <!-- course title -->
                   <h5 class="card-title"><%= result.getString("title") %></h5>
                   <!-- course subtitle -->
-                  <h6 class="card-subtitle mb-2 text-muted"><%= result.getString("dept") %><%= result.getString("code") %></h6>
+                  <h6 class="card-subtitle mb-2 text-muted"><%=course_code%></h6>
                   <div class="card-footer" id="card-footer">
                     <!-- button to go to modal -->
                     <a type="button" class="btn btn-outline-dark" data-bs-toggle="modal" data-bs-target="#enrolledStudentModal">Enrolled Student</a>
                         <!-- modal to show enrolled student's list -->
                         <div class="modal fade" id="enrolledStudentModal" tabindex="-1" aria-labelledby="enrolledStudentModalLabel" aria-hidden="true">
-                            <div class="modal-dialog">
+                            <div class="modal-dialog modal-lg">
                               <div class="modal-content">
                                 <div class="modal-header">
                                   <h5 class="modal-title" id="enrolledStudentModalLabel">Student Information</h5>
@@ -84,6 +86,30 @@
                                             <th>Email</th>
                                         </tr>
                                         <!-- fetch data of enrolled students from takes table of database using MySQL connection -->
+                                        <%
+                                            try{
+                                                PreparedStatement ps1 = con.prepareStatement("select name,Regno,department,email from takes where course_code=?");
+                                                ps1.setString(1, course_code);
+                                                ResultSet result1 = ps1.executeQuery();
+                                                int count = 1;
+                                                while(result1.next()){
+                                                    
+                                                    //pout.println(result1.getString("title"));
+                                        %>
+                                                    <tr>
+                                                        <td><%= count %></td>
+                                                        <td><%= result1.getString("name") %></td>
+                                                        <td><%= result1.getString("Regno") %></td>
+                                                        <td><%= result1.getString("department") %></td>
+                                                        <td><%= result1.getString("email") %></td>
+                                                    </tr>
+                                        <%
+                                                    count++;
+                                                }
+                                            } catch (SQLException ex) {
+                                              ex.printStackTrace();
+                                            } 
+                                        %>
                                     </table>
                                 </div>
                                 <div class="modal-footer">
