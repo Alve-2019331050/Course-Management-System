@@ -54,13 +54,18 @@
                 while(result.next()){
                     pout.println(result.getString("title"));
         %>
+        <!-- card showing assigned courses -->
         <div class="col-lg-4">
             <div class="card">
                 <div class="card-body">
+                  <!-- course title -->
                   <h5 class="card-title"><%= result.getString("title") %></h5>
+                  <!-- course subtitle -->
                   <h6 class="card-subtitle mb-2 text-muted"><%= result.getString("dept") %><%= result.getString("code") %></h6>
                   <div class="card-footer" id="card-footer">
+                    <!-- button to go to modal -->
                     <a type="button" class="btn btn-outline-dark" data-bs-toggle="modal" data-bs-target="#enrolledStudentModal">Enrolled Student</a>
+                        <!-- modal to show enrolled student's list -->
                         <div class="modal fade" id="enrolledStudentModal" tabindex="-1" aria-labelledby="enrolledStudentModalLabel" aria-hidden="true">
                             <div class="modal-dialog">
                               <div class="modal-content">
@@ -69,7 +74,17 @@
                                   <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                 </div>
                                 <div class="modal-body">
-                                  <p>Modal body text goes here.</p>
+                                    <!-- table showing enrolled student's information -->
+                                    <table class="table table-bordered table-dark table-striped table-hover">
+                                        <tr>
+                                            <th>#</th>
+                                            <th>Name</th>
+                                            <th>Registration Number</th>
+                                            <th>Department</th>
+                                            <th>Email</th>
+                                        </tr>
+                                        <!-- fetch data of enrolled students from takes table of database using MySQL connection -->
+                                    </table>
                                 </div>
                                 <div class="modal-footer">
                                   <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Close</button>
