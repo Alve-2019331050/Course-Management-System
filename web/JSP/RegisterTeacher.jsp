@@ -29,12 +29,13 @@
                             <option value="FES">
                             <option value="ARC">
                             <option value="CEP">
+                            <option value="CEE">
                             <option value="FET">
                             <option value="IPE">
                             <option value="MEE">
                             <option value="PME">
                             <option value="BMB">
-                            <option value="GEN">
+                            <option value="GEB">
                             <option value="BUS">
                             <option value="CHE">
                             <option value="GEE">

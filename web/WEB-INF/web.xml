@@ -12,6 +12,10 @@
         <servlet-name>AdminHome</servlet-name>
         <servlet-class>cms.servlet.AdminHome</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ManageCourseServlet</servlet-name>
+        <servlet-class>cms.servlet.ManageCourseServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>RegisterTeacherServlet</servlet-name>
         <url-pattern>/RegisterTeacher</url-pattern>
@@ -23,6 +27,10 @@
     <servlet-mapping>
         <servlet-name>AdminHome</servlet-name>
         <url-pattern>/AdminHome</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ManageCourseServlet</servlet-name>
+        <url-pattern>/ManageCourse</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

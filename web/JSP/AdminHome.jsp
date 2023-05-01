@@ -1,5 +1,6 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="java.sql.*"%>
+<%@page import="cms.connection.DBConnection"%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -39,8 +40,7 @@
                                 Statement st = null;
                                 ResultSet rs = null;
                                 try{
-                                    Class.forName("com.mysql.cj.jdbc.Driver");
-                                    connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/servlet_cms_db ", "root", "AlverahmaN");
+                                    connection = DBConnection.getConnection();
                                     String query = "select * from teacher";
                                     st = connection.createStatement();
                                     rs = st.executeQuery(query);

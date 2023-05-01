@@ -15,7 +15,7 @@
                 <a class="nav-link" href="./RegisterStudent">Register Student</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Manage Course</a>
+                <a class="nav-link" href="./ManageCourse">Manage Course</a>
             </li>
             <li class="nav-item dropdown me-2">
                 <button class="nav-link btn" type="button" data-bs-toggle="dropdown">
