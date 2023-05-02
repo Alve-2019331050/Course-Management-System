@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top">
     <div class="container-fluid">
         <a class="navbar-brand" href="#">
-            <img src="${pageContext.request.contextPath}/images/sust-logo.webp" alt="SUST" class="rounded-circle img-fluid" style="width:50px;height:40px"> 
+            <img src="${pageContext.request.contextPath}/images/logo.png" alt="SUST" style="width:50px;height:50px"> 
             &nbsp;&nbsp;Course Management System
         </a>
         <ul class="navbar-nav">

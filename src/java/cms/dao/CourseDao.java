@@ -5,6 +5,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -51,19 +53,24 @@ public class CourseDao {
         }
     }
     
-    public int getCount(String courseName){
-        int ans = 0;
+    public List<Course> getCourse(String deptName){
+        List<Course> courses = new ArrayList<Course>();
         try {
-            query = "select count(*) from course where dept = ?";
+            query = "select * from course where dept = ?";
             pst = this.connection.prepareStatement(query);
-            pst.setString(1, courseName);
+            pst.setString(1, deptName);
             rs = pst.executeQuery();
-            if(rs.next()){
-                ans = Integer.parseInt(rs.getString(1));
+            while(rs.next()){
+                String title = rs.getString(2);
+                String code = rs.getString(3);
+                String dept = rs.getString(4);
+                String teacher = rs.getString(5);
+                Course course = new Course(title,code,dept,teacher);
+                courses.add(course);
             }
         } catch (SQLException ex) {
             Logger.getLogger(CourseDao.class.getName()).log(Level.SEVERE, null, ex);
         }
-        return ans;
+        return courses;
     }
 }
