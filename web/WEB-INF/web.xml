@@ -24,6 +24,10 @@
         <servlet-name>TeacherHome</servlet-name>
         <servlet-class>cms.servlet.TeacherHome</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>StudentDashboard</servlet-name>
+        <servlet-class>cms.servlet.StudentDashboard</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>RegisterTeacherServlet</servlet-name>
         <url-pattern>/RegisterTeacher</url-pattern>
@@ -47,6 +51,10 @@
     <servlet-mapping>
         <servlet-name>TeacherHome</servlet-name>
         <url-pattern>/TeacherHome</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>StudentDashboard</servlet-name>
+        <url-pattern>/StudentDashboard</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

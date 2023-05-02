@@ -66,7 +66,13 @@
                   <h6 class="card-subtitle mb-2 text-muted"><%=course_code%></h6>
                   <div class="card-footer" id="card-footer">
                     <!-- button to go to modal -->
-                    <a type="button" class="btn btn-outline-dark" data-bs-toggle="modal" data-bs-target="#enrolledStudentModal">Enrolled Student</a>
+                    <a type="button" class="btn btn-outline-dark" data-bs-toggle="modal" data-bs-target="#enrolledStudentModal" onClick="getCourseCode()">Enrolled Student</a>
+                    <!-- get course code written on the card when enrolled student button clicked -->
+                    <script>
+                        function getCourseCode(){
+                            var cardCourseCode = document.querySelector(".card-subtitle").textContent;
+                        }
+                    </script>
                         <!-- modal to show enrolled student's list -->
                         <div class="modal fade" id="enrolledStudentModal" tabindex="-1" aria-labelledby="enrolledStudentModalLabel" aria-hidden="true">
                             <div class="modal-dialog modal-lg">
