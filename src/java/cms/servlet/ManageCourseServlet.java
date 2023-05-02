@@ -20,7 +20,12 @@ public class ManageCourseServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        getServletContext().getRequestDispatcher("/JSP/ManageCourse.jsp").forward(request, response);
+        String user = (String) request.getSession().getAttribute("user");
+        if (user != "admin") {
+            response.sendRedirect("/CourseManagementSystem/AccessDenied");
+        } else {
+            getServletContext().getRequestDispatcher("/JSP/ManageCourse.jsp").forward(request, response);
+        }
     }
 
     @Override
@@ -36,11 +41,10 @@ public class ManageCourseServlet extends HttpServlet {
                     String teacher = request.getParameter("teacher");
                     Course course = new Course(title, code, dept, teacher);
                     CourseDao cdao = new CourseDao(DBConnection.getConnection());
-                    if(cdao.createCourse(course)){
+                    if (cdao.createCourse(course)) {
                         request.setAttribute("Success", "Course created Successfully");
-                        getServletContext().getRequestDispatcher("/JSP/ManageCourse.jsp").forward(request, response);       
-                    }
-                    else{
+                        getServletContext().getRequestDispatcher("/JSP/ManageCourse.jsp").forward(request, response);
+                    } else {
                         request.setAttribute("Failed", "Failed to create course");
                         getServletContext().getRequestDispatcher("/JSP/ManageCourse.jsp").forward(request, response);
                     }
@@ -49,17 +53,15 @@ public class ManageCourseServlet extends HttpServlet {
                 } catch (SQLException ex) {
                     Logger.getLogger(ManageCourseServlet.class.getName()).log(Level.SEVERE, null, ex);
                 }
-            }
-            else if(query.equals("assign")){
+            } else if (query.equals("assign")) {
                 try {
                     String course = request.getParameter("course");
                     String teacher = request.getParameter("teacher");
                     CourseDao cdao = new CourseDao(DBConnection.getConnection());
-                    if(cdao.updateTeacher(course,teacher)){
+                    if (cdao.updateTeacher(course, teacher)) {
                         request.setAttribute("Success", "Teacher updated Successfully");
-                        getServletContext().getRequestDispatcher("/JSP/ManageCourse.jsp").forward(request, response);   
-                    }
-                    else{
+                        getServletContext().getRequestDispatcher("/JSP/ManageCourse.jsp").forward(request, response);
+                    } else {
                         request.setAttribute("Failed", "Failed to update teacher");
                         getServletContext().getRequestDispatcher("/JSP/ManageCourse.jsp").forward(request, response);
                     }

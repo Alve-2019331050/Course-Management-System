@@ -9,12 +9,16 @@ import jakarta.servlet.http.HttpServletResponse;
 
 public class AdminHome extends HttpServlet {
 
-    
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        getServletContext().getRequestDispatcher("/JSP/AdminHome.jsp").forward(request,response);
+        String user = (String) request.getSession().getAttribute("user");
+        if (user != "admin") {
+            response.sendRedirect("/CourseManagementSystem/AccessDenied");
+        } else {
+            getServletContext().getRequestDispatcher("/JSP/AdminHome.jsp").forward(request, response);
+        }
     }
 
     /**

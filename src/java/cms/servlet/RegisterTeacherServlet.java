@@ -19,7 +19,12 @@ public class RegisterTeacherServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        getServletContext().getRequestDispatcher("/JSP/RegisterTeacher.jsp").forward(request, response);
+        String user = (String) request.getSession().getAttribute("user");
+        if (user != "admin") {
+            response.sendRedirect("/CourseManagementSystem/AccessDenied");
+        } else {
+            getServletContext().getRequestDispatcher("/JSP/RegisterTeacher.jsp").forward(request, response);
+        }
     }
 
     @Override
@@ -33,10 +38,9 @@ public class RegisterTeacherServlet extends HttpServlet {
             Teacher teacher = new Teacher(name, dept, email, pwd);
             TeacherDao tdao = new TeacherDao(DBConnection.getConnection());
             if (tdao.registerTeacher(teacher)) {
-                String path = "/CourseManagementSystem/AdminHome?registrationMessage=Teacher "+name;
+                String path = "/CourseManagementSystem/AdminHome?registrationMessage=Teacher " + name;
                 response.sendRedirect(path);
-            }
-            else{
+            } else {
                 out.print("Failed");
             }
         } catch (ClassNotFoundException ex) {

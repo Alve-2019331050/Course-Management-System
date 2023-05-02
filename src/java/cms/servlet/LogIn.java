@@ -48,7 +48,8 @@ public class LogIn extends HttpServlet {
                 String emailDB = result.getString("email");
                 String roleDB = result.getString("role");
                 if(roleDB.equals("admin")){
-                    out.println("Successfully Logged In as Admin");
+                    request.getSession().setAttribute("user","admin");
+                    response.sendRedirect("/CourseManagementSystem/AdminHome");
                 }else if(roleDB.equals("teacher")){
                     ps = con.prepareStatement("select name from teacher where email=?");
                     ps.setString(1,email);
