@@ -55,16 +55,26 @@ public class LogIn extends HttpServlet {
                     ps.setString(1,email);
                     result = ps.executeQuery();
                     if(result.next()) {
-                        String teacherName = result.getString("name");
+                        String user = result.getString("name");
                         //out.println("Successfully Logged In as Teacher: " + teacherName);
-                        request.getSession().setAttribute("teacherName", teacherName); // set the teacherName as a session attribute
+                        request.getSession().setAttribute("teacherName", user); // set the teacherName as a session attribute
                         response.sendRedirect("/CourseManagementSystem/TeacherHome"); // redirect to the TeacherHome JSP file
                     } else {
                         out.println("Failed to get teacher's name");
                     }
                     //response.sendRedirect("/CourseManagementSystem/TeacherHome");
                 }else{
-                    out.println("Successfully Logged In as student");
+                    ps = con.prepareStatement("select name from student where email=?");
+                    ps.setString(1,email);
+                    result = ps.executeQuery();
+                    if(result.next()) {
+                        String user = result.getString("name");
+                        //out.println("Successfully Logged In as Student: " + studentName);
+                        request.getSession().setAttribute("studentName", user); // set the studentName as a session attribute
+                        response.sendRedirect("/CourseManagementSystem/StudentDashboard"); // redirect to the StudentDashboard JSP file
+                    } else {
+                        out.println("Failed to get student's name");
+                    }
                 }
                 
             }else{

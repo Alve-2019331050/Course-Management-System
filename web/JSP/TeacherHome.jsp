@@ -20,7 +20,7 @@
     </head>
     <body class="bg-dark">
         <!-- navigation bar -->
-        <nav class="navbar navbar-expand-sm  bg-light fixed-top">
+        <nav class="navbar navbar-expand-lg  bg-light fixed-top">
             <div class="container-fluid">
                 <a href="#" class="navbar-brand">
                     <img src="${pageContext.request.contextPath}/images/logo.png" alt="sust logo" style="width:50px;height:50px">
@@ -54,14 +54,79 @@
                         ps.setString(1, teacherName);
                         ResultSet result = ps.executeQuery();
                         while(result.next()){
-                            pout.println(result.getString("title"));
+                            String dept = result.getString("dept");
+                            String code = result.getString("code");
+                            String course_code = dept + code;
                 %>
+                <!-- card showing assigned courses -->
                 <div class="col-lg-4">
                     <div class="card">
                         <div class="card-body">
+                            <!-- course title -->
                             <h5 class="card-title"><%= result.getString("title") %></h5>
-                            <h6 class="card-subtitle mb-2 text-muted"><%= result.getString("dept") %> <%= result.getString("code") %></h6>
-                            <div class="card-footer" id="card-footer">Card Footer</div>
+                            <!-- course subtitle -->
+                            <h6 class="card-subtitle mb-2 text-muted"><%=course_code%></h6>
+                            <div class="card-footer" id="card-footer">
+                                <!-- button to go to modal -->
+                                <a type="button" class="btn btn-outline-dark" data-bs-toggle="modal" data-bs-target="#enrolledStudentModal" onClick="getCourseCode()">Enrolled Student</a>
+                                <!-- get course code written on the card when enrolled student button clicked -->
+                                <script>
+                                    function getCourseCode() {
+                                        var cardCourseCode = document.querySelector(".card-subtitle").textContent;
+                                    }
+                                </script>
+                                <!-- modal to show enrolled student's list -->
+                                <div class="modal fade" id="enrolledStudentModal" tabindex="-1" aria-labelledby="enrolledStudentModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog modal-lg">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="enrolledStudentModalLabel">Student Information</h5>
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <!-- table showing enrolled student's information -->
+                                                <table class="table table-bordered table-dark table-striped table-hover">
+                                                    <tr>
+                                                        <th>#</th>
+                                                        <th>Name</th>
+                                                        <th>Registration Number</th>
+                                                        <th>Department</th>
+                                                        <th>Email</th>
+                                                    </tr>
+                                                    <!-- fetch data of enrolled students from takes table of database using MySQL connection -->
+                                                    <%
+                                                        try{
+                                                            PreparedStatement ps1 = con.prepareStatement("select name,Regno,department,email from takes where course_code=?");
+                                                            ps1.setString(1, course_code);
+                                                            ResultSet result1 = ps1.executeQuery();
+                                                            int count = 1;
+                                                            while(result1.next()){
+                                                    
+                                                                //pout.println(result1.getString("title"));
+                                                    %>
+                                                    <tr>
+                                                        <td><%= count %></td>
+                                                        <td><%= result1.getString("name") %></td>
+                                                        <td><%= result1.getString("Regno") %></td>
+                                                        <td><%= result1.getString("department") %></td>
+                                                        <td><%= result1.getString("email") %></td>
+                                                    </tr>
+                                                    <%
+                                                                count++;
+                                                            }
+                                                        } catch (SQLException ex) {
+                                                          ex.printStackTrace();
+                                                        } 
+                                                    %>
+                                                </table>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Close</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
