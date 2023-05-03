@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top">
     <div class="container-fluid">
         <a class="navbar-brand" href="#">
-            <img src="${pageContext.request.contextPath}/images/logo.png" alt="SUST" style="width:50px;height:50px"> 
+            <img src="${pageContext.request.contextPath}/images/logo.png" alt="SUST" style="width:60px;height:60px"> 
             &nbsp;&nbsp;Course Management System
         </a>
         <ul class="navbar-nav">

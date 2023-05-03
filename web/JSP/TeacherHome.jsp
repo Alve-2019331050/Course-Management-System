@@ -23,7 +23,7 @@
         <nav class="navbar navbar-expand-lg  bg-light fixed-top">
             <div class="container-fluid">
                 <a href="#" class="navbar-brand">
-                    <img src="${pageContext.request.contextPath}/images/logo.png" alt="sust logo" style="width:50px;height:50px">
+                    <img src="${pageContext.request.contextPath}/images/logo.png" alt="sust logo" style="width:60px;height:60px">
                     &nbsp;&nbsp;Course Management System
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -37,7 +37,7 @@
                             document.getElementById("teacher-name").textContent = '<%= teacherName %>';
                         </script>
 
-                        <li class="nav-item"><a class="nav-link" href="/CourseManagementSystem/LogIn">Log Out</li>
+                        <li class="nav-item"><a class="nav-link" href="/CourseManagementSystem/LogIn">Log Out</a></li>
                     </ul>
                 </div>
             </div>
@@ -72,7 +72,13 @@
                                 <!-- get course code written on the card when enrolled student button clicked -->
                                 <script>
                                     function getCourseCode() {
-                                        var cardCourseCode = document.querySelector(".card-subtitle").textContent;
+                                        var courseCode = event.target.parentElement.parentElement.children.item(1).textContent;
+                                        const frame = document.createElement("iframe");
+                                        frame.setAttribute("src","${pageContext.request.contextPath}/JSP/enrolledStudentTable.jsp?param="+courseCode);
+                                        frame.setAttribute("width","750px");
+                                        var target = document.getElementsByClassName("modal-body")[0];
+                                        target.innerHTML="";
+                                        target.appendChild(frame);
                                     }
                                 </script>
                                 <!-- modal to show enrolled student's list -->
@@ -83,43 +89,7 @@
                                                 <h5 class="modal-title" id="enrolledStudentModalLabel">Student Information</h5>
                                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                             </div>
-                                            <div class="modal-body">
-                                                <!-- table showing enrolled student's information -->
-                                                <table class="table table-bordered table-dark table-striped table-hover">
-                                                    <tr>
-                                                        <th>#</th>
-                                                        <th>Name</th>
-                                                        <th>Registration Number</th>
-                                                        <th>Department</th>
-                                                        <th>Email</th>
-                                                    </tr>
-                                                    <!-- fetch data of enrolled students from takes table of database using MySQL connection -->
-                                                    <%
-                                                        try{
-                                                            PreparedStatement ps1 = con.prepareStatement("select name,Regno,department,email from takes where course_code=?");
-                                                            ps1.setString(1, course_code);
-                                                            ResultSet result1 = ps1.executeQuery();
-                                                            int count = 1;
-                                                            while(result1.next()){
-                                                    
-                                                                //pout.println(result1.getString("title"));
-                                                    %>
-                                                    <tr>
-                                                        <td><%= count %></td>
-                                                        <td><%= result1.getString("name") %></td>
-                                                        <td><%= result1.getString("Regno") %></td>
-                                                        <td><%= result1.getString("department") %></td>
-                                                        <td><%= result1.getString("email") %></td>
-                                                    </tr>
-                                                    <%
-                                                                count++;
-                                                            }
-                                                        } catch (SQLException ex) {
-                                                          ex.printStackTrace();
-                                                        } 
-                                                    %>
-                                                </table>
-                                            </div>
+                                            <div class="modal-body"></div>
                                             <div class="modal-footer">
                                                 <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Close</button>
                                             </div>

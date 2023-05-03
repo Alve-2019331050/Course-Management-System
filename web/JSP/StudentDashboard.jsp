@@ -25,7 +25,7 @@
             <div class="container-fluid">
                 <!-- logo -->
                 <a href="#" class="navbar-brand">
-                    <img src="${pageContext.request.contextPath}/images/logo.png" alt="sust logo" style="width:50px;height:50px">
+                    <img src="${pageContext.request.contextPath}/images/logo.png" alt="sust logo" style="width:60px;height:60px">
                     &nbsp;&nbsp;Course Management System
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -42,7 +42,7 @@
                             document.getElementById("student-name").textContent = '<%= studentName %>';
                         </script>
 
-                        <li class="nav-item"><a class="nav-link" href="/CourseManagementSystem/LogIn">Log Out</li>
+                        <li class="nav-item"><a class="nav-link" href="/CourseManagementSystem/LogIn">Log Out</a></li>
                     </ul>
                 </div>
             </div>
