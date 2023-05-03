@@ -31,13 +31,13 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav ms-auto">
-                        <% String teacherName = (String) request.getSession().getAttribute("teacherName"); %>
+                        <% String teacherName = (String) request.getSession().getAttribute("user"); %>
                         <li class="nav-item"><a class="nav-link" href="#" id="teacher-name">Teacher Name</a></li>
                         <script>
                             document.getElementById("teacher-name").textContent = '<%= teacherName %>';
                         </script>
 
-                        <li class="nav-item"><a class="nav-link" href="/CourseManagementSystem/LogIn">Log Out</a></li>
+                        <li class="nav-item"><a class="nav-link" href="./LogOut">Log Out</a></li>
                     </ul>
                 </div>
             </div>

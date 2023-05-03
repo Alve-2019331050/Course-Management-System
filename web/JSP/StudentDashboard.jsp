@@ -36,13 +36,13 @@
                     <ul class="navbar-nav ms-auto">
                         <li class="nav-item"><a class="nav-link" href="/CourseManagementSystem/StudentDashboard">Dashboard</a></li>
                         <!-- getting student's name after login -->
-                        <% String studentName = (String) request.getSession().getAttribute("studentName"); %>
+                        <% String studentName = (String) request.getSession().getAttribute("user"); %>
                         <li class="nav-item"><a class="nav-link" href="#" id="student-name">Student Name</a></li>
                         <script>
                             document.getElementById("student-name").textContent = '<%= studentName %>';
                         </script>
 
-                        <li class="nav-item"><a class="nav-link" href="/CourseManagementSystem/LogIn">Log Out</a></li>
+                        <li class="nav-item"><a class="nav-link" href="./LogOut">Log Out</a></li>
                     </ul>
                 </div>
             </div>

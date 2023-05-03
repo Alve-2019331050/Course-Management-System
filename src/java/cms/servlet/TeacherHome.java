@@ -4,6 +4,7 @@
  */
 package cms.servlet;
 
+import cms.dao.Checker;
 import java.io.IOException;
 import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
@@ -21,7 +22,12 @@ public class TeacherHome extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        getServletContext().getRequestDispatcher("/JSP/TeacherHome.jsp").forward(request,response);
+        String user = (String) request.getSession().getAttribute("user");
+        if (Checker.validateTeacher(user)){
+            getServletContext().getRequestDispatcher("/JSP/TeacherHome.jsp").forward(request,response);
+        } else {
+            response.sendRedirect("/CourseManagementSystem/AccessDenied");
+        }
     }
 
 }

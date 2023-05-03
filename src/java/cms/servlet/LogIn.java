@@ -57,7 +57,7 @@ public class LogIn extends HttpServlet {
                     if(result.next()) {
                         String user = result.getString("name");
                         //out.println("Successfully Logged In as Teacher: " + teacherName);
-                        request.getSession().setAttribute("teacherName", user); // set the teacherName as a session attribute
+                        request.getSession().setAttribute("user", user); // set the teacherName as a session attribute
                         response.sendRedirect("/CourseManagementSystem/TeacherHome"); // redirect to the TeacherHome JSP file
                     } else {
                         out.println("Failed to get teacher's name");
@@ -70,7 +70,7 @@ public class LogIn extends HttpServlet {
                     if(result.next()) {
                         String user = result.getString("name");
                         //out.println("Successfully Logged In as Student: " + studentName);
-                        request.getSession().setAttribute("studentName", user); // set the studentName as a session attribute
+                        request.getSession().setAttribute("user", user); // set the studentName as a session attribute
                         response.sendRedirect("/CourseManagementSystem/StudentDashboard"); // redirect to the StudentDashboard JSP file
                     } else {
                         out.println("Failed to get student's name");
