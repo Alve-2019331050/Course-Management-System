@@ -117,4 +117,41 @@ public class CourseDao {
         }
         return courses;
     }
+    
+    public void enroll(String name,String regno,String email,String course){
+        try {
+            String dept = course.substring(0, 3);
+            String code = course.substring(4);
+            String course_code = dept+code;
+            query = "insert into takes(name,Regno,email,department,course_code) values(?,?,?,?,?)";
+            pst = this.connection.prepareStatement(query);
+            pst.setString(1, name);
+            pst.setString(2, regno);
+            pst.setString(3, email);
+            pst.setString(4, dept);
+            pst.setString(5, course_code);
+            pst.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(CourseDao.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    public boolean exists(String regno,String course){
+        try {
+            query = "select * from takes where Regno=? and course_code=?";
+            pst = this.connection.prepareStatement(query);
+            pst.setString(1, regno);
+            pst.setString(2, course);
+            rs = pst.executeQuery();
+            if(rs.next()){
+                return true;
+            }
+            else{
+                return false;
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(CourseDao.class.getName()).log(Level.SEVERE, null, ex);
+            return false;
+        }
+    }
 }
