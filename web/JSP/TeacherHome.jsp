@@ -17,8 +17,9 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Teacher Home Page</title>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+        <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
     </head>
-    <body class="bg-dark">
+    <body class="bg-black">
         <!-- navigation bar -->
         <nav class="navbar navbar-expand-lg  bg-light fixed-top">
             <div class="container-fluid">
@@ -72,7 +73,8 @@
                                 <!-- get course code written on the card when enrolled student button clicked -->
                                 <script>
                                     function getCourseCode() {
-                                        var cardCourseCode = document.querySelector(".card-subtitle").textContent;
+                                        $("modal-body").load("enrolledStudentTable.jsp");
+                                        
                                     }
                                 </script>
                                 <!-- modal to show enrolled student's list -->
@@ -84,7 +86,7 @@
                                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                             </div>
                                             <div class="modal-body">
-                                                <!-- table showing enrolled student's information -->
+<!--                                                 table showing enrolled student's information 
                                                 <table class="table table-bordered table-dark table-striped table-hover">
                                                     <tr>
                                                         <th>#</th>
@@ -93,7 +95,8 @@
                                                         <th>Department</th>
                                                         <th>Email</th>
                                                     </tr>
-                                                    <!-- fetch data of enrolled students from takes table of database using MySQL connection -->
+                                                    <!-- fetch data of enrolled students from takes table of database using MySQL connection 
+                                                    
                                                     <%
                                                         try{
                                                             PreparedStatement ps1 = con.prepareStatement("select name,Regno,department,email from takes where course_code=?");
@@ -117,9 +120,9 @@
                                                         } catch (SQLException ex) {
                                                           ex.printStackTrace();
                                                         } 
-                                                    %>
-                                                </table>
-                                            </div>
+                                                    %> 
+                                                </table>-->
+                                            </div> 
                                             <div class="modal-footer">
                                                 <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Close</button>
                                             </div>
