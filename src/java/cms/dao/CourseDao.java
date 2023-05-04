@@ -73,4 +73,48 @@ public class CourseDao {
         }
         return courses;
     }
+    
+    public List<Course> getAllCourse(){
+        List<Course> courses = new ArrayList<Course>();
+        try {
+            query = "select * from course";
+            pst = this.connection.prepareStatement(query);
+            rs = pst.executeQuery();
+            while(rs.next()){
+                String title = rs.getString(2);
+                String code = rs.getString(3);
+                String dept = rs.getString(4);
+                String teacher = rs.getString(5);
+                Course course = new Course(title,code,dept,teacher);
+                courses.add(course);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(CourseDao.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return courses;
+    }
+    
+    public List<Course> getSingleCourse(String queryCourse){
+        String deptName = queryCourse.substring(0, 3);
+        String queryCode = queryCourse.substring(4);
+        List<Course> courses = new ArrayList<Course>();
+        try {
+            query = "select * from course where dept = ? and code = ?";
+            pst = this.connection.prepareStatement(query);
+            pst.setString(1, deptName);
+            pst.setString(2, queryCode);
+            rs = pst.executeQuery();
+            while(rs.next()){
+                String title = rs.getString(2);
+                String code = rs.getString(3);
+                String dept = rs.getString(4);
+                String teacher = rs.getString(5);
+                Course course = new Course(title,code,dept,teacher);
+                courses.add(course);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(CourseDao.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return courses;
+    }
 }
