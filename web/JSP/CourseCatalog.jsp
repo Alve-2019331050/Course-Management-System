@@ -11,10 +11,13 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Course Catalog</title>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@500&family=Pacifico&family=Poppins:wght@700&display=swap" rel="stylesheet">
     </head>
-    <body class="bg-dark">
+    <body style="background-color: #141414">
         <%@include file = "studentNavbar.jsp" %>
-        <div class="container-fluid" style="width:1000px;height:130px;margin-top: 120px;border:3px solid white">
+        <div class="container-fluid" style="width:1000px;height:130px;margin-top: 150px;border:3px solid white">
             <p class="h4 text-light mt-2" style="margin-bottom: 15px">
                 <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-filter" viewBox="0 0 16 16">
                 <path d="M6 10.5a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 0 1h-3a.5.5 0 0 1-.5-.5zm-2-3a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5zm-2-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5z"/>
@@ -123,7 +126,7 @@
                                         cdao = new CourseDao(DBConnection.getConnection());
                                         if(cdao.exists((String)request.getSession().getAttribute("regno"),currentCourse.getDept()+currentCourse.getCode())){
                                     %>
-                                    <button type="button" class="btn btn-secondary disabled">Enrolled</button>
+                                    <button type="button" class="btn disabled" style="background-color:#586f7c;color:white">Enrolled</button>
                                     <%
                                         }
                                         else{

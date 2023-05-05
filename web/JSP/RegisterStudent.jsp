@@ -5,22 +5,25 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Register Student</title>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@500&family=Pacifico&family=Poppins:wght@700&display=swap" rel="stylesheet">
     </head>
-    <body style="background-color:lightblue">
+    <body style="background-color:#bfc1e0;">
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
         <%@include file="navbar.jsp"%>
-        <div class="shadow card w-50 mx-auto" style="margin-top: 6rem">
+        <div class="shadow card w-50 mx-auto" style="margin-top: 2rem">
             <div class="h3 card-header text-center">Register Student</div>
-            <div class="card-body text-bg-dark">
+            <div class="card-body" style="background-color:#050017">
                 <form action="./RegisterStudent" method="post" class="needs-validation">
                     <div class ="mt-2 mb-2">
-                        <label for ="name" class ="form-label">Name:</label>
+                        <label for ="name" class ="form-label text-white">Name:</label>
                         <input type="text" class="form-control" placeholder="Enter name" name="name" required>
                         <div class="valid-feedback">Valid.</div>
                         <div class="invalid-feedback">Please fill out this field.</div>
                     </div>
                     <div class ="mb-2">
-                        <label for ="dept" class ="form-label">Department:</label>
+                        <label for ="dept" class ="form-label text-white">Department:</label>
                         <input class="form-control" placeholder="Choose department" list="depts" name="dept" required>
                         <datalist id="depts">
                             <option value="CSE">
@@ -56,30 +59,30 @@
                         <div class="invalid-feedback">Please fill out this field.</div>
                     </div>
                     <div class ="mb-2">
-                        <label for ="regno" class ="form-label">Registration No:</label>
+                        <label for ="regno" class ="form-label text-white">Registration No:</label>
                         <input type="number" class="form-control" placeholder="Enter registration no" name="regno" required>
                         <div class="valid-feedback">Valid.</div>
                         <div class="invalid-feedback">Please fill out this field.</div>
                     </div>
                     <div class ="mb-2">
-                        <label for ="email" class ="form-label">Email:</label>
+                        <label for ="email" class ="form-label text-white">Email:</label>
                         <input type="email" class="form-control" placeholder="Enter email" name="email" required>
                         <div class="valid-feedback">Valid.</div>
                         <div class="invalid-feedback">Please fill out this field.</div>
                     </div>
                     <div class ="mb-2">
-                        <label for ="pwd" class ="form-label">Password:</label>
+                        <label for ="pwd" class ="form-label text-white">Password:</label>
                         <input type="password" class="form-control" placeholder="Enter password" name="pwd" required>
                         <div class="valid-feedback">Valid.</div>
                         <div class="invalid-feedback">Please fill out this field.</div>
                     </div>
                     <div class="form-check mb-2">
-                        <label class="form-check-label">
+                        <label class="form-check-label text-white">
                             <input class="form-check-input" type="checkbox" name="remember"> Remember me
                         </label>
                     </div>
                     <div class="text-center mb-2">
-                        <button type="submit" class="text-center btn btn-primary">Submit</button>
+                        <button type="submit" class="text-center btn text-white" style="background-color:#950101">Submit</button>
                     </div>
                 </form>
             </div>

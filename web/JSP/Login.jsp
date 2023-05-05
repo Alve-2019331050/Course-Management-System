@@ -33,7 +33,7 @@
                 width: 100%;
                 height: 100%;
                 padding: 20px;
-                background: black;
+                background: #141414;
                 border-radius: 4px;
                 box-shadow: 0 8px 16px rgba(0,0,0,.3);
             }
@@ -58,7 +58,7 @@
                 height: 40px;
                 border: none;
                 outline: none;
-                background: #80191b;
+                background: #04724d;
                 cursor: pointer;
                 font-size: 16px;
                 color: white;

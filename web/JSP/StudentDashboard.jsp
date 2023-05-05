@@ -18,8 +18,11 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Student Dashboard</title>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@500&family=Pacifico&family=Poppins:wght@700&display=swap" rel="stylesheet">
     </head>
-    <body class="bg-dark">
+    <body style="background-color: #141414">
         <%@include file = "studentNavbar.jsp" %>
         
         <!-- fetch enrolled courses -->

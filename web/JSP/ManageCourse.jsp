@@ -10,8 +10,11 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Manage Course</title>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@500&family=Pacifico&family=Poppins:wght@700&display=swap" rel="stylesheet">
     </head>
-    <body style="background-color:lightblue;padding-top:70px">
+    <body style="background-color:#bfc1e0;">
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
         <%@include file="navbar.jsp"%>
         <%
@@ -37,7 +40,7 @@
         <div class="hstack gap-2 align-items-start">
             <div class="accordion my-5" id="course-accordion" style="width:900px;margin-left: 100px">
                 <h1 class="mb-4 ms-3">Courses</h1>
-                <div class="accordion-item">
+                <div class="accordion-item" style="background-color:#EEF0F2">
                     <%
                         CourseDao cdao = new CourseDao(DBConnection.getConnection());
                         List<Course> courses = cdao.getCourse("CSE");
@@ -56,7 +59,7 @@
                                         Course course = courses.get(i);
                                 %>
                                 <div class="col-lg-4">
-                                    <div class="card" style="background-color: #B3B3BD">
+                                    <div class="card" style="background-color: #c1c8e8">
                                         <div class="card-body">
                                             <p class="h5 card-title" style="height:60px"><%= course.getTitle() %></p>
                                             <p class="h6 card-subtitle mb-2"><%= course.getDept() %> <%= course.getCode() %></p>
@@ -90,7 +93,7 @@
                                         Course course = courses.get(i);
                                 %>
                                 <div class="col-lg-4">
-                                    <div class="card" style="background-color: #B3B3BD">
+                                    <div class="card" style="background-color: #c1c8e8">
                                         <div class="card-body">
                                             <p class="h5 card-title" style="height:60px"><%= course.getTitle() %></p>
                                             <p class="h6 card-subtitle mb-2"><%= course.getDept() %> <%= course.getCode() %></p>
@@ -124,7 +127,7 @@
                                         Course course = courses.get(i);
                                 %>
                                 <div class="col-lg-4">
-                                    <div class="card" style="background-color: #B3B3BD">
+                                    <div class="card" style="background-color: #c1c8e8">
                                         <div class="card-body">
                                             <p class="h5 card-title" style="height:60px"><%= course.getTitle() %></p>
                                             <p class="h6 card-subtitle mb-2"><%= course.getDept() %> <%= course.getCode() %></p>
@@ -158,7 +161,7 @@
                                         Course course = courses.get(i);
                                 %>
                                 <div class="col-lg-4">
-                                    <div class="card" style="background-color: #B3B3BD">
+                                    <div class="card" style="background-color: #c1c8e8">
                                         <div class="card-body">
                                             <p class="h5 card-title" style="height:60px"><%= course.getTitle() %></p>
                                             <p class="h6 card-subtitle mb-2"><%= course.getDept() %> <%= course.getCode() %></p>
@@ -192,7 +195,7 @@
                                         Course course = courses.get(i);
                                 %>
                                 <div class="col-lg-4">
-                                    <div class="card" style="background-color: #B3B3BD">
+                                    <div class="card" style="background-color: #c1c8e8">
                                         <div class="card-body">
                                             <p class="h5 card-title" style="height:60px"><%= course.getTitle() %></p>
                                             <p class="h6 card-subtitle mb-2"><%= course.getDept() %> <%= course.getCode() %></p>
@@ -226,7 +229,7 @@
                                         Course course = courses.get(i);
                                 %>
                                 <div class="col-lg-4">
-                                    <div class="card" style="background-color: #B3B3BD">
+                                    <div class="card" style="background-color: #c1c8e8">
                                         <div class="card-body">
                                             <p class="h5 card-title" style="height:60px"><%= course.getTitle() %></p>
                                             <p class="h6 card-subtitle mb-2"><%= course.getDept() %> <%= course.getCode() %></p>
@@ -260,7 +263,7 @@
                                         Course course = courses.get(i);
                                 %>
                                 <div class="col-lg-4">
-                                    <div class="card" style="background-color: #B3B3BD">
+                                    <div class="card" style="background-color: #c1c8e8">
                                         <div class="card-body">
                                             <p class="h5 card-title" style="height:60px"><%= course.getTitle() %></p>
                                             <p class="h6 card-subtitle mb-2"><%= course.getDept() %> <%= course.getCode() %></p>
@@ -294,7 +297,7 @@
                                         Course course = courses.get(i);
                                 %>
                                 <div class="col-lg-4">
-                                    <div class="card" style="background-color: #B3B3BD">
+                                    <div class="card" style="background-color: #c1c8e8">
                                         <div class="card-body">
                                             <p class="h5 card-title" style="height:60px"><%= course.getTitle() %></p>
                                             <p class="h6 card-subtitle mb-2"><%= course.getDept() %> <%= course.getCode() %></p>
@@ -328,7 +331,7 @@
                                         Course course = courses.get(i);
                                 %>
                                 <div class="col-lg-4">
-                                    <div class="card" style="background-color: #B3B3BD">
+                                    <div class="card" style="background-color: #c1c8e8">
                                         <div class="card-body">
                                             <p class="h5 card-title" style="height:60px"><%= course.getTitle() %></p>
                                             <p class="h6 card-subtitle mb-2"><%= course.getDept() %> <%= course.getCode() %></p>
@@ -362,7 +365,7 @@
                                         Course course = courses.get(i);
                                 %>
                                 <div class="col-lg-4">
-                                    <div class="card" style="background-color: #B3B3BD">
+                                    <div class="card" style="background-color: #c1c8e8">
                                         <div class="card-body">
                                             <p class="h5 card-title" style="height:60px"><%= course.getTitle() %></p>
                                             <p class="h6 card-subtitle mb-2"><%= course.getDept() %> <%= course.getCode() %></p>
@@ -396,7 +399,7 @@
                                         Course course = courses.get(i);
                                 %>
                                 <div class="col-lg-4">
-                                    <div class="card" style="background-color: #B3B3BD">
+                                    <div class="card" style="background-color: #c1c8e8">
                                         <div class="card-body">
                                             <p class="h5 card-title" style="height:60px"><%= course.getTitle() %></p>
                                             <p class="h6 card-subtitle mb-2"><%= course.getDept() %> <%= course.getCode() %></p>
@@ -430,7 +433,7 @@
                                         Course course = courses.get(i);
                                 %>
                                 <div class="col-lg-4">
-                                    <div class="card" style="background-color: #B3B3BD">
+                                    <div class="card" style="background-color: #c1c8e8">
                                         <div class="card-body">
                                             <p class="h5 card-title" style="height:60px"><%= course.getTitle() %></p>
                                             <p class="h6 card-subtitle mb-2"><%= course.getDept() %> <%= course.getCode() %></p>
@@ -464,7 +467,7 @@
                                         Course course = courses.get(i);
                                 %>
                                 <div class="col-lg-4">
-                                    <div class="card" style="background-color: #B3B3BD">
+                                    <div class="card" style="background-color: #c1c8e8">
                                         <div class="card-body">
                                             <p class="h5 card-title" style="height:60px"><%= course.getTitle() %></p>
                                             <p class="h6 card-subtitle mb-2"><%= course.getDept() %> <%= course.getCode() %></p>
@@ -498,7 +501,7 @@
                                         Course course = courses.get(i);
                                 %>
                                 <div class="col-lg-4">
-                                    <div class="card" style="background-color: #B3B3BD">
+                                    <div class="card" style="background-color: #c1c8e8">
                                         <div class="card-body">
                                             <p class="h5 card-title" style="height:60px"><%= course.getTitle() %></p>
                                             <p class="h6 card-subtitle mb-2"><%= course.getDept() %> <%= course.getCode() %></p>
@@ -532,7 +535,7 @@
                                         Course course = courses.get(i);
                                 %>
                                 <div class="col-lg-4">
-                                    <div class="card" style="background-color: #B3B3BD">
+                                    <div class="card" style="background-color: #c1c8e8">
                                         <div class="card-body">
                                             <p class="h5 card-title" style="height:60px"><%= course.getTitle() %></p>
                                             <p class="h6 card-subtitle mb-2"><%= course.getDept() %> <%= course.getCode() %></p>
@@ -566,7 +569,7 @@
                                         Course course = courses.get(i);
                                 %>
                                 <div class="col-lg-4">
-                                    <div class="card" style="background-color: #B3B3BD">
+                                    <div class="card" style="background-color: #c1c8e8">
                                         <div class="card-body">
                                             <p class="h5 card-title" style="height:60px"><%= course.getTitle() %></p>
                                             <p class="h6 card-subtitle mb-2"><%= course.getDept() %> <%= course.getCode() %></p>
@@ -600,7 +603,7 @@
                                         Course course = courses.get(i);
                                 %>
                                 <div class="col-lg-4">
-                                    <div class="card" style="background-color: #B3B3BD">
+                                    <div class="card" style="background-color: #c1c8e8">
                                         <div class="card-body">
                                             <p class="h5 card-title" style="height:60px"><%= course.getTitle() %></p>
                                             <p class="h6 card-subtitle mb-2"><%= course.getDept() %> <%= course.getCode() %></p>
@@ -634,7 +637,7 @@
                                         Course course = courses.get(i);
                                 %>
                                 <div class="col-lg-4">
-                                    <div class="card" style="background-color: #B3B3BD">
+                                    <div class="card" style="background-color: #c1c8e8">
                                         <div class="card-body">
                                             <p class="h5 card-title" style="height:60px"><%= course.getTitle() %></p>
                                             <p class="h6 card-subtitle mb-2"><%= course.getDept() %> <%= course.getCode() %></p>
@@ -668,7 +671,7 @@
                                         Course course = courses.get(i);
                                 %>
                                 <div class="col-lg-4">
-                                    <div class="card" style="background-color: #B3B3BD">
+                                    <div class="card" style="background-color: #c1c8e8">
                                         <div class="card-body">
                                             <p class="h5 card-title" style="height:60px"><%= course.getTitle() %></p>
                                             <p class="h6 card-subtitle mb-2"><%= course.getDept() %> <%= course.getCode() %></p>
@@ -702,7 +705,7 @@
                                         Course course = courses.get(i);
                                 %>
                                 <div class="col-lg-4">
-                                    <div class="card" style="background-color: #B3B3BD">
+                                    <div class="card" style="background-color: #c1c8e8">
                                         <div class="card-body">
                                             <p class="h5 card-title" style="height:60px"><%= course.getTitle() %></p>
                                             <p class="h6 card-subtitle mb-2"><%= course.getDept() %> <%= course.getCode() %></p>
@@ -736,7 +739,7 @@
                                         Course course = courses.get(i);
                                 %>
                                 <div class="col-lg-4">
-                                    <div class="card" style="background-color: #B3B3BD">
+                                    <div class="card" style="background-color: #c1c8e8">
                                         <div class="card-body">
                                             <p class="h5 card-title" style="height:60px"><%= course.getTitle() %></p>
                                             <p class="h6 card-subtitle mb-2"><%= course.getDept() %> <%= course.getCode() %></p>
@@ -770,7 +773,7 @@
                                         Course course = courses.get(i);
                                 %>
                                 <div class="col-lg-4">
-                                    <div class="card" style="background-color: #B3B3BD">
+                                    <div class="card" style="background-color: #c1c8e8">
                                         <div class="card-body">
                                             <p class="h5 card-title" style="height:60px"><%= course.getTitle() %></p>
                                             <p class="h6 card-subtitle mb-2"><%= course.getDept() %> <%= course.getCode() %></p>
@@ -804,7 +807,7 @@
                                         Course course = courses.get(i);
                                 %>
                                 <div class="col-lg-4">
-                                    <div class="card" style="background-color: #B3B3BD">
+                                    <div class="card" style="background-color: #c1c8e8">
                                         <div class="card-body">
                                             <p class="h5 card-title" style="height:60px"><%= course.getTitle() %></p>
                                             <p class="h6 card-subtitle mb-2"><%= course.getDept() %> <%= course.getCode() %></p>
@@ -838,7 +841,7 @@
                                         Course course = courses.get(i);
                                 %>
                                 <div class="col-lg-4">
-                                    <div class="card" style="background-color: #B3B3BD">
+                                    <div class="card" style="background-color: #c1c8e8">
                                         <div class="card-body">
                                             <p class="h5 card-title" style="height:60px"><%= course.getTitle() %></p>
                                             <p class="h6 card-subtitle mb-2"><%= course.getDept() %> <%= course.getCode() %></p>
@@ -872,7 +875,7 @@
                                         Course course = courses.get(i);
                                 %>
                                 <div class="col-lg-4">
-                                    <div class="card" style="background-color: #B3B3BD">
+                                    <div class="card" style="background-color: #c1c8e8">
                                         <div class="card-body">
                                             <p class="h5 card-title" style="height:60px"><%= course.getTitle() %></p>
                                             <p class="h6 card-subtitle mb-2"><%= course.getDept() %> <%= course.getCode() %></p>
@@ -906,7 +909,7 @@
                                         Course course = courses.get(i);
                                 %>
                                 <div class="col-lg-4">
-                                    <div class="card" style="background-color: #B3B3BD">
+                                    <div class="card" style="background-color: #c1c8e8">
                                         <div class="card-body">
                                             <p class="h5 card-title" style="height:60px"><%= course.getTitle() %></p>
                                             <p class="h6 card-subtitle mb-2"><%= course.getDept() %> <%= course.getCode() %></p>
@@ -940,7 +943,7 @@
                                         Course course = courses.get(i);
                                 %>
                                 <div class="col-lg-4">
-                                    <div class="card" style="background-color: #B3B3BD">
+                                    <div class="card" style="background-color: #c1c8e8">
                                         <div class="card-body">
                                             <p class="h5 card-title" style="height:60px"><%= course.getTitle() %></p>
                                             <p class="h6 card-subtitle mb-2"><%= course.getDept() %> <%= course.getCode() %></p>
@@ -974,7 +977,7 @@
                                         Course course = courses.get(i);
                                 %>
                                 <div class="col-lg-4">
-                                    <div class="card" style="background-color: #B3B3BD">
+                                    <div class="card" style="background-color: #c1c8e8">
                                         <div class="card-body">
                                             <p class="h5 card-title" style="height:60px"><%= course.getTitle() %></p>
                                             <p class="h6 card-subtitle mb-2"><%= course.getDept() %> <%= course.getCode() %></p>
@@ -994,22 +997,22 @@
             <div class="d-flex flex-column">
                 <div class="card m-4" style="width:300px">
                     <div class="h6 card-header text-center">Create New Course</div>
-                    <div class="card-body text-bg-dark">
+                    <div class="card-body" style="background-color:#050017">
                         <form action="./ManageCourse?create" method="post" class="needs-validation">
                             <div>
-                                <label for ="title" class ="form-label">Title:</label>
+                                <label for ="title" class ="form-label text-white">Title:</label>
                                 <input type="text" class="form-control" placeholder="Enter Course Title" name="title" required>
                                 <div class="valid-feedback">Valid.</div>
                                 <div class="invalid-feedback">Please fill out this field.</div>
                             </div>
                             <div class="mt-1">
-                                <label for ="code" class ="form-label">Code:</label>
+                                <label for ="code" class ="form-label text-white">Code:</label>
                                 <input type="number" class="form-control" placeholder="Enter Course Code" name="code" required>
                                 <div class="valid-feedback">Valid.</div>
                                 <div class="invalid-feedback">Please fill out this field.</div>
                             </div>
                             <div class ="mt-1">
-                                <label for ="dept" class ="form-label">Department:</label>
+                                <label for ="dept" class ="form-label text-white">Department:</label>
                                 <input class="form-control" placeholder="Choose department" list="depts" name="dept" required>
                                 <datalist id="depts">
                                     <option value="CSE">
@@ -1045,7 +1048,7 @@
                                 <div class="invalid-feedback">Please fill out this field.</div>
                             </div>
                             <div class="mt-1">
-                                <label for ="teacher" class ="form-label">Teacher:</label>
+                                <label for ="teacher" class ="form-label text-white">Teacher:</label>
                                 <input class="form-control" placeholder="Assign Teacher" list="teachers" name="teacher">
                                 <datalist id="teachers">
                                     <%
@@ -1069,7 +1072,7 @@
                                 </datalist>
                             </div>
                             <div class="text-center mt-3">
-                                <button type="submit" class="text-center btn btn-primary">Create</button>
+                                <button type="submit" class="text-center btn text-white" style="background-color:#950101">Create</button>
                             </div>
                         </form>
                     </div>
@@ -1077,10 +1080,10 @@
                 <hr style="border-top: 3px solid black;margin-left: -10px">
                 <div class="card m-4" style="width:300px">
                     <div class="h6 card-header text-center">Assign Teacher</div>
-                    <div class="card-body text-bg-dark">
+                    <div class="card-body" style="background-color:#050017">
                         <form action="./ManageCourse?assign" method="post" class="needs-validation">
                             <div>
-                                <label for ="course" class ="form-label">Course:</label>
+                                <label for ="course" class ="form-label text-white">Course:</label>
                                 <input class="form-control" placeholder="Select Course" list="courses" name="course" required>
                                 <datalist id="courses">
                                     <%
@@ -1103,13 +1106,13 @@
                                 <div class="invalid-feedback">Please fill out this field.</div>
                             </div>
                             <div class="mt-1">
-                                <label for ="teacher" class ="form-label">Teacher:</label>
+                                <label for ="teacher" class ="form-label text-white">Teacher:</label>
                                 <input class="form-control" placeholder="Select Teacher" list="teachers" name="teacher" required>
                                 <div class="valid-feedback">Valid.</div>
                                 <div class="invalid-feedback">Please fill out this field.</div>
                             </div>
                             <div class="text-center mt-3">
-                                <button type="submit" class="text-center btn btn-primary">Assign</button>
+                                <button type="submit" class="text-center btn text-white" style="background-color:#950101">Assign</button>
                             </div>
                         </form>
                     </div>
