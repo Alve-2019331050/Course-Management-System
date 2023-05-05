@@ -1,13 +1,11 @@
 <%-- 
-    Document   : TeacherHome
-    Created on : Apr 29, 2023, 1:51:03 AM
-    Author     : Raha
---%>
-
-<%@ page import="cms.connection.DBConnection" %>
-<%@ page import="java.sql.*" %>
-<%@ page import="java.io.PrintWriter" %>
-
+    Document : TeacherHome 
+    Created on : Apr 29, 2023, 1:51:03 AM 
+    Author : Raha
+--%> 
+<%@ page import="cms.connection.DBConnection" %> 
+<%@ page import="java.sql.*" %> 
+<%@ page import="java.io.PrintWriter" %> 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -18,45 +16,61 @@
         <title>Teacher Home Page</title>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
     </head>
-    <body class="bg-dark">
+    <body class="bg-black">
         <!-- navigation bar -->
-        <nav class="navbar navbar-expand-lg  bg-light fixed-top">
+        <nav class="navbar navbar-expand-lg bg-light fixed-top">
             <div class="container-fluid">
                 <a href="#" class="navbar-brand">
-                    <img src="${pageContext.request.contextPath}/images/logo.png" alt="sust logo" style="width:60px;height:60px">
+                    <img
+                        src="${pageContext.request.contextPath}/images/logo.png"
+                        alt="sust logo"
+                        style="width: 60px; height: 60px"
+                        />
                     &nbsp;&nbsp;Course Management System
                 </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <button
+                    class="navbar-toggler"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent"
+                    aria-controls="navbarSupportedContent"
+                    aria-expanded="false"
+                    aria-label="Toggle navigation"
+                    >
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav ms-auto">
                         <% String teacherName = (String) request.getSession().getAttribute("user"); %>
-                        <li class="nav-item"><a class="nav-link" href="#" id="teacher-name">Teacher Name</a></li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#" id="teacher-name">Teacher Name</a>
+                        </li>
                         <script>
-                            document.getElementById("teacher-name").textContent = '<%= teacherName %>';
+                            document.getElementById("teacher-name").textContent = "<%= teacherName %>";
                         </script>
 
-                        <li class="nav-item"><a class="nav-link" href="./LogOut">Log Out</a></li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="./LogOut">Log Out</a>
+                        </li>
                     </ul>
                 </div>
             </div>
         </nav>
         <!--fetch course name and code from teacher table using MySQL connection-->
-        <div class="container-fluid" style="margin-top: 140px;">
+        <div class="container-fluid" style="margin-top: 140px">
             <p class="h1 text-white ms-4">Your Courses</p>
             <div class="row gy-3 mt-5 ms-2">
-                <%
-                    PrintWriter pout = response.getWriter();
-                    Connection con = DBConnection.getConnection();
-                    try{
-                        PreparedStatement ps = con.prepareStatement("select title,code,dept from course where teacher=?");
-                        ps.setString(1, teacherName);
-                        ResultSet result = ps.executeQuery();
-                        while(result.next()){
-                            String dept = result.getString("dept");
-                            String code = result.getString("code");
-                            String course_code = dept + code;
+                <% 
+                    PrintWriter pout = response.getWriter(); 
+                    Connection con = DBConnection.getConnection(); 
+                    try{ 
+                        PreparedStatement ps = con.prepareStatement("select title,code,dept from course where teacher=?"); 
+                        ps.setString(1, teacherName); 
+                        ResultSet result = ps.executeQuery(); 
+                        while(result.next()){ 
+                            String dept = result.getString("dept"); 
+                            String code = result.getString("code"); 
+                            String course_code = dept + code; 
                 %>
                 <!-- card showing assigned courses -->
                 <div class="col-lg-4">
@@ -74,10 +88,10 @@
                                     function getCourseCode() {
                                         var courseCode = event.target.parentElement.parentElement.children.item(1).textContent;
                                         const frame = document.createElement("iframe");
-                                        frame.setAttribute("src","${pageContext.request.contextPath}/JSP/enrolledStudentTable.jsp?param="+courseCode);
-                                        frame.setAttribute("width","750px");
+                                        frame.setAttribute("src","${pageContext.request.contextPath}/JSP/enrolledStudentTable.jsp?param=" + courseCode);
+                                        frame.setAttribute("width", "750px");
                                         var target = document.getElementsByClassName("modal-body")[0];
-                                        target.innerHTML="";
+                                        target.innerHTML = "";
                                         target.appendChild(frame);
                                     }
                                 </script>
@@ -86,12 +100,15 @@
                                     <div class="modal-dialog modal-lg">
                                         <div class="modal-content">
                                             <div class="modal-header">
-                                                <h5 class="modal-title" id="enrolledStudentModalLabel">Student Information</h5>
+                                                <h5 class="modal-title" id="enrolledStudentModalLabel">
+                                                    Student Information
+                                                </h5>
                                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                             </div>
                                             <div class="modal-body"></div>
                                             <div class="modal-footer">
-                                                <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Close</button>
+                                                <button
+                                                    type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Close</button>
                                             </div>
                                         </div>
                                     </div>
@@ -100,10 +117,10 @@
                         </div>
                     </div>
                 </div>
-                <%
-                        }
-                    } catch (SQLException ex) {
-                      ex.printStackTrace();
+                <% 
+                        } 
+                    } catch (SQLException ex) { 
+                        ex.printStackTrace(); 
                     } 
                 %>
             </div>

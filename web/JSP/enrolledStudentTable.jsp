@@ -1,6 +1,5 @@
-<%@ page import="java.sql.*" %>
+<%@ page import="java.sql.*" %> 
 <%@ page import="cms.connection.DBConnection" %>
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -12,9 +11,9 @@
     </head>
     <body>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
-        <%
-            Connection con = DBConnection.getConnection();
-            String course_code = (String) request.getParameter("param");
+        <% 
+            Connection con = DBConnection.getConnection(); 
+            String course_code = (String) request.getParameter("param"); 
         %>
 
         <!-- table showing enrolled student's information -->
@@ -27,15 +26,12 @@
                 <th>Email</th>
             </tr>
             <!-- fetch data of enrolled students from takes table of database using MySQL connection -->
-            <%
-                try{
+            <% 
+                try{ 
                     PreparedStatement ps1 = con.prepareStatement("select name,Regno,department,email from takes where course_code=?");
-                    ps1.setString(1, course_code);
-                    ResultSet result1 = ps1.executeQuery();
-                    int count = 1;
+                    ps1.setString(1, course_code); ResultSet result1 = ps1.executeQuery(); int
+                    count = 1; 
                     while(result1.next()){
-                                                    
-                        //pout.println(result1.getString("title"));
             %>
             <tr>
                 <td><%= count %></td>
@@ -44,11 +40,11 @@
                 <td><%= result1.getString("department") %></td>
                 <td><%= result1.getString("email") %></td>
             </tr>
-            <%
-                        count++;
-                    }
-                } catch (SQLException ex) {
-                  ex.printStackTrace();
+            <% 
+                    count++;
+                    } 
+                } catch (SQLException ex) { 
+                    ex.printStackTrace(); 
                 } 
             %>
         </table>
