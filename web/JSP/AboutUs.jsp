@@ -31,7 +31,7 @@
                 z-index: 1;
                 margin: 0 auto;
                 max-width: 900px;
-                /*                text-align: center;*/
+                text-align: center;
             }
             section:nth-of-type(1):before{
                 content: '';
