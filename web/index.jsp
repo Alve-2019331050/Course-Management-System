@@ -91,7 +91,7 @@
                         </div>
                         <!-- Second item -->
                         <div class="carousel-item" data-bs-interval="2000">
-                            <p class="text-white fs-2">Collaborate effectively with the students and manage their learning workflow with us ...</p>
+                            <p class="text-white fs-1">Collaborate effectively with the students and manage their learning workflow with us ...</p>
                             <img class="rounded" src="${pageContext.request.contextPath}/images/home logo5.jpg" alt="home image2" style="width:1000px;height:500px">
                         </div>
                         <!-- Third item -->
@@ -115,6 +115,8 @@
                     </button>
                 </div>
             </div>
+
+            <!-- paragraph -->
             <div class="row p-5 d-flex justify-content-center" style="margin-top:100px">
                 <div class="col-lg-8">
                     <p style="font-size:35px;font-family:Poppins;padding-bottom: 24px;line-height:2.5rem;margin-left:200px">
@@ -126,7 +128,9 @@
                     </p>
                 </div>
             </div>
+            
             <hr>
+            
             <!-- feature poster -->
             <p class="text-center mb-5" style="font-size: 60px">Our Services</p>
             <div class="row ms-auto">
