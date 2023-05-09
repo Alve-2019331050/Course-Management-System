@@ -20,7 +20,7 @@
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@500&family=Pacifico&family=Poppins:wght@700&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Bruno+Ace+SC&family=Noto+Sans:wght@500&family=Poppins:wght@700&display=swap" rel="stylesheet">
     </head>
     <body style="background-color: #141414">
         <%@include file = "studentNavbar.jsp" %>
@@ -46,20 +46,23 @@
                             String code = course_code.substring(3,6);
                         
                             // fetch course title from course table 
-                            PreparedStatement ps1 = con.prepareStatement("select title from course where code=? and dept=?");
+                            PreparedStatement ps1 = con.prepareStatement("select title,teacher from course where code=? and dept=?");
                             ps1.setString(1,code);
                             ps1.setString(2,dept);
                             ResultSet result1 = ps1.executeQuery();
                         
                             while(result1.next()){
                                 String title = result1.getString("title");
+                                String teacher = result1.getString("teacher");
                 %>
 
                 <!-- card to show enrolled courses -->
                 <div class="col-lg-4">
                     <div class="card">
                         <div class="card-body">
-                            <h5 class="card-title"><%= course_code %> : <%= title %></h5> 
+                            <h5 class="card-title"><%= course_code %> : <%= title %></h5>
+                            <div class="card-subtitle my-2"></div>
+                            <div class="card-footer">Taken By <strong><%= teacher%></strong></div>
                         </div>
                     </div>
                 </div>

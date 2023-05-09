@@ -8,10 +8,9 @@
 <nav class="navbar navbar-expand-lg  bg-light fixed-top">
     <div class="container-fluid">
         <!-- logo -->
-        <a href="#" class="navbar-brand">
-            <img src="${pageContext.request.contextPath}/images/logo.png" alt="sust logo" style="width:80px;height:80px">
-            &nbsp;&nbsp;<span style="font-family:'Pacifico', cursive;font-size:30px">
-                <span style="color:#0d21a1">Course </span><span style="color:#950101">Management </span><span style="color:#0d21a1">System</span>
+        <a href="#" class="navbar-brand ms-3">
+            <span style="font-family:'Bruno Ace SC';letter-spacing:2px;font-weight: 1000">
+                <span style="color:#950101;font-size:40px;">Swift</span><span style="color:#473bf0;font-size:50px">Course</span>
             </span>
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
