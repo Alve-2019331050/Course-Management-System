@@ -14,6 +14,12 @@
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Bruno+Ace+SC&family=Noto+Sans:wght@500&family=Poppins:wght@700&display=swap" rel="stylesheet">
+        
+        <style>
+            .btn:hover{
+                opacity: .7;
+            }
+        </style>
     </head>
     <body style="background-color: #141414">
         <%@include file = "studentNavbar.jsp" %>
@@ -131,7 +137,7 @@
                                         }
                                         else{
                                     %>
-                                    <button type="button" class="btn btn-outline-dark" data-bs-toggle="modal" data-bs-target="#confirmationModal" data-confirmbtn="button.confirm" onClick="saveEvent()">Enroll now</button>
+                                    <button type="button" class="btn text-white" data-bs-toggle="modal" data-bs-target="#confirmationModal" data-confirmbtn="button.confirm" onClick="saveEvent()" style="background-color: #04724d">Enroll now</button>
                                     <%
                                         }
                                     %>
