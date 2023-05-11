@@ -174,9 +174,9 @@
                             <div class="developer" style="margin-left:60px">
                                 <h3>
                                     Farzana Reefat Raha<br>
-                                    <h6 class="text-muted">
+                                    <p class="text-muted" style="font-size:12px">
                                         <i>Registration Number : 2019331078<br>CSE,SUST.</i>
-                                    </h6>
+                                    </p>
                                 </h3>
                             </div>
                         </div>
@@ -184,9 +184,9 @@
                             <div class="developer" style="margin-left:60px">
                                 <h3>
                                     Md Shibly Rahman Alve
-                                    <h6 class="text-muted">
+                                    <p class="text-muted" style="font-size:12px">
                                         <i>Registration Number : 2019331050<br>CSE,SUST.</i>
-                                    </h6>
+                                    </p>
                                 </h3>
                             </div>
                         </div>
