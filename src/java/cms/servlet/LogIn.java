@@ -25,13 +25,6 @@ import java.sql.*;
 public class LogIn extends HttpServlet {
 
     @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        getServletContext().getRequestDispatcher("/JSP/Login.jsp").forward(request,response);
-        
-    }
-
-    @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         try {
@@ -82,7 +75,7 @@ public class LogIn extends HttpServlet {
                 
             }else{
                 request.setAttribute("errorMessage", "Please provide correct information again!");
-                getServletContext().getRequestDispatcher("/JSP/Login.jsp").forward(request,response);
+                getServletContext().getRequestDispatcher("/index.jsp").forward(request,response);
             }
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(LogIn.class.getName()).log(Level.SEVERE, null, ex);

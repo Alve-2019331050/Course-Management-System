@@ -17,7 +17,7 @@ public class LogOut extends HttpServlet {
         HttpSession session = request.getSession();
         session.removeAttribute("user");
         session.invalidate();
-        response.sendRedirect("/CourseManagementSystem/LogIn");
+        response.sendRedirect("/CourseManagementSystem/");
     }
 
 }
