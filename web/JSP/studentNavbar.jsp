@@ -9,7 +9,7 @@
     <div class="container-fluid">
         <!-- logo -->
         <a href="#" class="navbar-brand ms-3">
-            <span style="font-family:'Bruno Ace SC';letter-spacing:2px;font-weight: 1000">
+            <span style="font-family:'Bruno Ace SC';letter-spacing:2px;font-weight: bolder">
                 <span style="color:#950101;font-size:40px;">Swift</span><span style="color:#473bf0;font-size:50px">Course</span>
             </span>
         </a>
