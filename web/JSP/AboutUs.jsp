@@ -223,7 +223,7 @@
             <!--            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#0099ff" fill-opacity="0.3" d="M0,128L17.1,122.7C34.3,117,69,107,103,138.7C137.1,171,171,245,206,256C240,267,274,213,309,197.3C342.9,181,377,203,411,229.3C445.7,256,480,288,514,288C548.6,288,583,256,617,256C651.4,256,686,288,720,293.3C754.3,299,789,277,823,245.3C857.1,213,891,171,926,128C960,85,994,43,1029,48C1062.9,53,1097,107,1131,160C1165.7,213,1200,267,1234,272C1268.6,277,1303,235,1337,213.3C1371.4,192,1406,192,1423,192L1440,192L1440,0L1422.9,0C1405.7,0,1371,0,1337,0C1302.9,0,1269,0,1234,0C1200,0,1166,0,1131,0C1097.1,0,1063,0,1029,0C994.3,0,960,0,926,0C891.4,0,857,0,823,0C788.6,0,754,0,720,0C685.7,0,651,0,617,0C582.9,0,549,0,514,0C480,0,446,0,411,0C377.1,0,343,0,309,0C274.3,0,240,0,206,0C171.4,0,137,0,103,0C68.6,0,34,0,17,0L0,0Z"></path></svg>-->
 
             <!-- Team Information -->
-            <div class="container" style="margin-top:100px">
+            <div class="container" id="team" style="margin-top:100px">
                 <div class="row bg-white">
                     <div class="row"><h1 class="bg-light text-blue text-center text-uppercase">Meet the Team</h1></div>&nbsp&nbsp
                     <br>
@@ -272,7 +272,7 @@
             </div>
 
         </section>
-
+        <%@include file="footer.jsp"%>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
     </body>
 </html>
