@@ -1,7 +1,6 @@
 package cms.servlet;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
@@ -15,6 +14,7 @@ public class AdminHome extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         String user = (String) request.getSession().getAttribute("user");
         if (user != "admin") {
+            // if admin is not logged in, send them to acees denied page
             response.sendRedirect("/CourseManagementSystem/AccessDenied");
         } else {
             getServletContext().getRequestDispatcher("/JSP/AdminHome.jsp").forward(request, response);

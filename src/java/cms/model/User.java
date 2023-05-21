@@ -25,5 +25,4 @@ public class User {
     public String getPwd() {
         return pwd;
     }
-    
 }

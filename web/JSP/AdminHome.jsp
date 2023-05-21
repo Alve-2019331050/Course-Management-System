@@ -16,11 +16,20 @@
         <%@include file="navbar.jsp"%>
         <%
             String message = request.getParameter("registrationMessage");
+            String failed = request.getParameter("failed");
             if(message!=null){
         %>
         <div class="alert alert-success alert-dismissible" style="margin-bottom: -2px">
             <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
             <strong>Success!</strong> <%=message%> created.
+        </div>
+        <%
+        }
+        else if(failed!=null){
+        %>
+        <div class="alert alert-danger alert-dismissible" style="margin-bottom: -2px">
+            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+            <strong>Failed!</strong> User creation failed.
         </div>
         <%
         }

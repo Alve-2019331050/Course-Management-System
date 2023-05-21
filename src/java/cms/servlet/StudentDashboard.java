@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Servlet.java to edit this template
- */
 package cms.servlet;
 
 import cms.dao.Checker;
@@ -21,7 +17,7 @@ public class StudentDashboard extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         String user = (String) request.getSession().getAttribute("user");
-        if (Checker.validateStudent(user)) {
+        if (Checker.validateStudent(user)) { // if user is valid student, only then he/she will be accessed to the dashboard
             getServletContext().getRequestDispatcher("/JSP/StudentDashboard.jsp").forward(request, response);
         } else {
             response.sendRedirect("/CourseManagementSystem/AccessDenied");

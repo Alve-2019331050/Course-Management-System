@@ -5,6 +5,9 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
+/**
+ * This is a Database Object class responsible for handling student related Database Object
+ */
 public class StudentDao {
     private final Connection connection;
     private String query;
@@ -14,6 +17,11 @@ public class StudentDao {
         this.connection = connection;
     }
     
+    /**
+     * register a new student in the user and student table
+     * @param student a student object
+     * @return true if successful, false otherwise
+     */
     public boolean registerStudent(Student student){
         try{
             query = "insert into user(email,password,role) values(?,?,?)";

@@ -10,6 +10,9 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+/**
+ * This is a Database Object class responsible for handling course related Database Object
+ */
 public class CourseDao {
     private final Connection connection;
     private String query;
@@ -20,6 +23,11 @@ public class CourseDao {
         this.connection = connection;
     }
     
+    /**
+     * create a new course
+     * @param course a course object
+     * @return true if successful, false otherwise
+     */
     public boolean createCourse(Course course){
         try {
             query = "insert into course(title,code,dept,teacher) Values(?,?,?,?)";
@@ -36,6 +44,12 @@ public class CourseDao {
         }
     }
     
+    /**
+     * reassign/update a course teacher
+     * @param course a course object
+     * @param teacher a teacher object
+     * @return true-if successful, false-otherwise
+     */
     public boolean updateTeacher(String course,String teacher){
         try {
             String dept = course.substring(0,3);
@@ -53,6 +67,11 @@ public class CourseDao {
         }
     }
     
+    /**
+     * get all the current courses offered by deptName
+     * @param deptName a string containing department name
+     * @return list of course
+     */
     public List<Course> getCourse(String deptName){
         List<Course> courses = new ArrayList<Course>();
         try {
@@ -74,6 +93,10 @@ public class CourseDao {
         return courses;
     }
     
+    /**
+     * get all the available course
+     * @return list of course
+     */
     public List<Course> getAllCourse(){
         List<Course> courses = new ArrayList<Course>();
         try {
@@ -94,6 +117,11 @@ public class CourseDao {
         return courses;
     }
     
+    /**
+     * get single course specified by queryCourse
+     * @param queryCourse a string containing department name and course code
+     * @return single course if exists, empty list otherwise
+     */
     public List<Course> getSingleCourse(String queryCourse){
         String deptName = queryCourse.substring(0, 3);
         String queryCode = queryCourse.substring(4);
@@ -118,6 +146,13 @@ public class CourseDao {
         return courses;
     }
     
+    /**
+     * enroll a new student in a course in the takes table
+     * @param name student's name
+     * @param regno student's registration number
+     * @param email student's email
+     * @param course a string containing department name and course code
+     */
     public void enroll(String name,String regno,String email,String course){
         try {
             String dept = course.substring(0, 3);
@@ -136,6 +171,11 @@ public class CourseDao {
         }
     }
     
+    /**
+     * @param regno student's registration number
+     * @param course course code
+     * @return true if student with the given registration number takes the given course, false otherwise
+     */
     public boolean exists(String regno,String course){
         try {
             query = "select * from takes where Regno=? and course_code=?";

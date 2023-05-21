@@ -3,9 +3,11 @@ package cms.dao;
 import cms.model.Teacher;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.sql.SQLException;
 
+/**
+ * This is a Database Object class responsible for handling teacher related Database Object
+ */
 public class TeacherDao {
     private final Connection connection;
     private String query;
@@ -15,6 +17,11 @@ public class TeacherDao {
         this.connection = connection;
     }
     
+    /**
+     * register a new teacher in the user and teacher table
+     * @param teacher a teacher object
+     * @return true if successful, false otherwise
+     */
     public boolean registerTeacher(Teacher teacher){
         try{
             query = "insert into user(email,password,role) values(?,?,?)";

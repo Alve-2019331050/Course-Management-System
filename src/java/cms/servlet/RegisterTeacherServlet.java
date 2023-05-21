@@ -21,6 +21,7 @@ public class RegisterTeacherServlet extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         String user = (String) request.getSession().getAttribute("user");
         if (user != "admin") {
+            // if admin is not logged in, send them to acees denied page
             response.sendRedirect("/CourseManagementSystem/AccessDenied");
         } else {
             getServletContext().getRequestDispatcher("/JSP/RegisterTeacher.jsp").forward(request, response);
@@ -41,7 +42,8 @@ public class RegisterTeacherServlet extends HttpServlet {
                 String path = "/CourseManagementSystem/AdminHome?registrationMessage=Teacher " + name;
                 response.sendRedirect(path);
             } else {
-                out.print("Failed");
+                String path = "/CourseManagementSystem/AdminHome?failed";
+                response.sendRedirect(path);
             }
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(RegisterTeacherServlet.class.getName()).log(Level.SEVERE, null, ex);

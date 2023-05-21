@@ -4,14 +4,11 @@ import cms.connection.DBConnection;
 import cms.dao.CourseDao;
 import cms.model.Course;
 import java.io.IOException;
-import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import java.sql.Connection;
 import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -22,6 +19,7 @@ public class ManageCourseServlet extends HttpServlet {
             throws ServletException, IOException {
         String user = (String) request.getSession().getAttribute("user");
         if (user != "admin") {
+            // if admin is not logged in, send them to acees denied page
             response.sendRedirect("/CourseManagementSystem/AccessDenied");
         } else {
             getServletContext().getRequestDispatcher("/JSP/ManageCourse.jsp").forward(request, response);
@@ -31,6 +29,7 @@ public class ManageCourseServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        // Form data of creating course and assigning teacher will come here
         String query = request.getQueryString();
         if (query != null) {
             if (query.equals("create")) {

@@ -8,6 +8,9 @@ import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+/**
+ * This is a Database Object class responsible for validating Database Object
+ */
 public class Checker {
     public static boolean validateTeacher(String user){
         try {

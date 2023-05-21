@@ -20,7 +20,8 @@ public class CourseCatalog extends HttpServlet {
         String user = (String) request.getSession().getAttribute("user");
         String regno = (String)request.getSession().getAttribute("regno");
         String email = (String)request.getSession().getAttribute("email");
-        if (Checker.validateStudent(user)) {
+        
+        if (Checker.validateStudent(user)) { // if logged in user is student, then only access this section
             String course = request.getParameter("course");
             if(course!=null){
                 try {
@@ -34,13 +35,14 @@ public class CourseCatalog extends HttpServlet {
             }
             getServletContext().getRequestDispatcher("/JSP/CourseCatalog.jsp").forward(request, response);
         } else {
+            // if user is not student, send him/her to access denied page
             response.sendRedirect("/CourseManagementSystem/AccessDenied");
         }
     }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
+            throws ServletException, IOException { // if course is filtered, form data will come here
         String dept = request.getParameter("dept");
         String course = request.getParameter("course");
         request.setAttribute("dept", dept);
